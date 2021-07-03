@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from app01 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # 首页
+    url(r'^$',views.home,name='home'),
+    # 图书的展示页
+    url(r'^book/list/',views.book_list,name='book_list'),
+    # 书籍的添加
+    url(r'^book/add/',views.book_add,name='book_add')
 ]
