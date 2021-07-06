@@ -24,5 +24,9 @@ urlpatterns = [
     # 图书的展示页
     url(r'^book/list/',views.book_list,name='book_list'),
     # 书籍的添加
-    url(r'^book/add/',views.book_add,name='book_add')
+    url(r'^book/add/',views.book_add,name='book_add'),
+    # 书籍的编辑
+    url(r'^book/edit/(?P<edit_id>\d+)/',views.book_edit,name='book_edit'),
+    # 书籍的删除
+    url(r'^book/delete/(\d+)/',views.book_delete,name='book_delete')
 ]

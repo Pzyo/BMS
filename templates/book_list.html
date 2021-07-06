@@ -7,6 +7,7 @@
     <table class="table table-hover table-striped table-bordered">
         <thead>
             <tr>
+                <th>序号</th>
                 <th>ID</th>
                 <th>书名</th>
                 <th>价格</th>
@@ -19,6 +20,7 @@
         <tbody>
             {% for book_obj in book_queryset %}
                 <tr>
+                    <td>{{ forloop.counter }}</td>
                     <td>{{ book_obj.pk }}</td>
                     <td>{{ book_obj.title }}</td>
                     <td>{{ book_obj.price }}</td>
@@ -35,8 +37,8 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <a href="" class="btn btn-primary btn-xs">编辑</a>
-                        <a href="" class="btn btn-danger btn-xs">删除</a>
+                        <a href="{% url 'book_edit' book_obj.pk %}" class="btn btn-primary btn-xs">编辑</a>
+                        <a href="{% url 'book_delete' book_obj.pk %}" class="btn btn-danger btn-xs">删除</a>
                     </td>
                 </tr>
             {% endfor %}
